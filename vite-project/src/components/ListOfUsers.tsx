@@ -1,4 +1,4 @@
-import {Card, Table,TableHead,TableRow,TableHeaderCell,TableBody,TableCell,Title} from "@tremor/react"
+import {Card, Table,TableHead,TableRow,TableHeaderCell,TableBody,TableCell,Title,Badge} from "@tremor/react"
 
 
 const users:{
@@ -36,7 +36,8 @@ export function ListOfUsers () {
     return (
       <Card>
         <Title>
-
+         Usuarios 
+         <Badge style={{marginLeft:"8px"}}>{users.length}</Badge>
         </Title>
         <Table>
           <TableHead>
