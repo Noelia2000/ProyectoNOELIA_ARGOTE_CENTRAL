@@ -1,37 +1,10 @@
-import {Card, Table,TableHead,TableRow,TableHeaderCell,TableBody,TableCell,Title,Badge} from "@tremor/react"
+import {Card, Table,TableHead,TableRow,TableHeaderCell,TableBody,TableCell,Title,Badge
 
+} from "@tremor/react"
 
-const users:{
-    id:string;
-    name: string;
-    email: string;
-    github :string;
-
-}[]=[ 
-    {
-    id:"1",
-    name:"Yazman Rodriguez",
-    email:"yazmanito@gmail.com",
-    github:"yazmanito"
-    },
-    {
-    id:"2",
-    name:"John Doe",
-    email:"leo@gmail.com",
-    github:"leo"
-        },
-    {
-    id:"3",
-    name:"Haakon Dahlberg",
-    email:"haakon@gmail.com",
-    github:"haakon"
-    },
-
-    
-
-
-];
+import { useSelector, UseSelector } from "react-redux";
 export function ListOfUsers () {
+  const users= useSelector((state)=>state.users);
   
     return (
       <Card>
