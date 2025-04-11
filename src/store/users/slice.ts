@@ -34,7 +34,7 @@ export type UserId= string;
 export interface User{
     name: string;
     email: string;
-    github:string
+    github:string;
 }
 
 export interface UserWithId extends User{
@@ -54,14 +54,19 @@ export const usersSlice= createSlice({
     name: 'users',
     initialState,
     reducers:{
+        addNewUser:(state, action: PayloadAction<User>)=>{
+
+        const  id= crypto.randomUUID()
+        return[...state,{id, ...action.payload}]
+        },
        deleteUserById: (state, action:PayloadAction<UserId>)=>{
         const id = action.payload;
         return state.filter((user)=>user.id !== id );
 
-       }
-    }
+       },
+    },
 });
 
 export default usersSlice.reducer;
 
-export const{ deleteUserById}= usersSlice.actions
+export const{ addNewUser,deleteUserById}= usersSlice.actions
