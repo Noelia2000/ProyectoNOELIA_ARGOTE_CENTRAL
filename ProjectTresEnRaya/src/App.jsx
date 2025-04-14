@@ -4,6 +4,15 @@ O:'o'
 }
 
 const board = Array(9).fill(null)
+
+const Square =({ children, updateBoard, index})=>{
+  return(
+    <div className="square" >
+    {children}
+    </div>
+  )
+}
+
 function App() {
   return (
     <main className="board">
@@ -12,11 +21,12 @@ function App() {
         {
           board.map((_, index) => {
             return(
-              <div className="cell" key={index}>
-                <span className="cell__content">
+              <Square
+                key={index}
+                index={index}
+                >
                   {index}
-                  </span>
-              </div>
+                </Square>
               )
             })
           }
