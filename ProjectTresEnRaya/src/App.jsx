@@ -52,17 +52,26 @@ const checkWinner= (boardToCheck)=>{
     ){
       return boardToCheck[a]// x u o
     }
-
 }
 // si no hay ganador
 return null
-  }
+}
+
 
 const resetGame=()=>{
   setBoard(Array(9).fill(null))
   setTurn(TURNS.X)
   setWinner(null)
 }
+
+const checkEnGame=(newBoard)=>{
+// revisar si hay un empate
+// si no hay mas espacios vacios
+// en el tablero
+
+  return newBoard.every((square)=> square !== null)
+}
+
  const updateBoard=(index)=>{
 
   if (board[index] || winner) return
@@ -71,24 +80,26 @@ const resetGame=()=>{
   newBoard[index]=turn
   setBoard(newBoard)
   //cambiar el turno
-
-
   const newTurn=turn===TURNS.X ? TURNS.O : TURNS.X
   setTurn(newTurn)
   // revisar si hay un ganador
   const newWinner=checkWinner(newBoard)
   if (newWinner){
     setWinner(newWinner)
-  }// TODO: check if gane is over
+  } else if (checkEnGame(newBoard)){
+    setWinner(false)// empate
+
     
   }
+}
 
 
  
 
   return (
     <main className="board">
-      <h1> tres raya</h1>
+      <h1> tres en raya</h1>
+      <button onClick={resetGame}> Reset del juego </button>
       <section className="game">
         {
           board.map((_, index) => {
