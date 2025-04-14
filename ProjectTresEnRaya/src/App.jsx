@@ -1,10 +1,29 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-
-function App() {
-  return <h1> Tres en Raya</h1>
+const TURNS={
+X:'x',
+O:'o'
 }
 
+const board = Array(9).fill(null)
+function App() {
+  return (
+    <main className="board">
+      <h1> tres raya</h1>
+      <section className="game">
+        {
+          board.map((_, index) => {
+            return(
+              <div className="cell" key={index}>
+                <span className="cell__content">
+                  {index}
+                  </span>
+              </div>
+              )
+            })
+          }
+          </section>
+          </main>
+  )
+}           
+  
+    
 export default App
