@@ -1,4 +1,5 @@
 import { useState } from "react"
+import confetti from "canvas-confetti"
 
 const TURNS={
 X:'x',
@@ -85,6 +86,8 @@ const checkEnGame=(newBoard)=>{
   // revisar si hay un ganador
   const newWinner=checkWinner(newBoard)
   if (newWinner){
+
+  confetti()
     setWinner(newWinner)
   } else if (checkEnGame(newBoard)){
     setWinner(false)// empate
@@ -102,14 +105,14 @@ const checkEnGame=(newBoard)=>{
       <button onClick={resetGame}> Reset del juego </button>
       <section className="game">
         {
-          board.map((_, index) => {
+          board.map((square, index) => {
             return(
               <Square
                 key={index}
                 index={index}
                 updateBoard={updateBoard}
                 >
-                  {board [index]}
+                  {square}
                 </Square>
               )
             })
