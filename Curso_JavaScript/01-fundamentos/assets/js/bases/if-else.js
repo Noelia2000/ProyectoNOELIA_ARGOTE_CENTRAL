@@ -30,3 +30,20 @@ if (dia===0){
     console.log('no es lunes, martes o viernes');
 }
 
+// Sin usar If Else, o Switch, unicamente usando objetos
+dia-6;
+const diasLetras={
+    0:'domingo',
+    1:'lunes',
+    2:'martes',
+    3:'miercoles',
+    4:'jueves',
+    5:'viernes',
+    6:'sabado'
+}
+
+const diasLetras2=['domingo','lunes','martes','miercoles','jueves','viernes','sabado'
+]
+// dia de la semana
+console.log(diasLetras2[dia]); //sabado
+
