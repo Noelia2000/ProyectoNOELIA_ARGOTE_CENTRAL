@@ -7,27 +7,34 @@
 
 let deck = [];
 
-const tipos = ['C', 'D', 'H', 'S'];
-const especiales = ['A', 'J', 'Q', 'K'];
+const tipos = ['C', 'D', 'H', 'S'],
+      especiales = ['A', 'J', 'Q', 'K'];
 
-let puntosJugador = 0,
-    puntosComputadora = 0;
-
+let puntosJugadores=[];
 
 //Referencias HTML
-const btnPedir = document.querySelector('#btnPedir');
-const btnDetener = document.querySelector('#btnDetener');
-const btnNuevo = document.querySelector('#btnNuevo');
+const btnPedir = document.querySelector('#btnPedir'),
+      btnDetener = document.querySelector('#btnDetener'),
+      btnNuevo = document.querySelector('#btnNuevo');
 
 
-const divCartasJugador = document.querySelector('#jugador-cartas');
-const divCartasComputadora = document.querySelector('#computadora-cartas');
+const divCartasJugador = document.querySelector('#jugador-cartas'),
+      divCartasComputadora = document.querySelector('#computadora-cartas'),
+      puntosHTML= document.querySelectorAll('small');
 
+// esta funcion inicializa el juego
+const inicializarJuego=(numJugadores=2)=>{
+   deck= crearDeck();
+  for (let i=0; i<numJugadores; i++){
+    puntosJugadores.push(0);
+  }
+  console.log({puntosJugadores});
 
-const puntosHTML= document.querySelectorAll('small');
-
+}
 // esta funcion crea una nueva baraja
 const crearDeck = () => {
+
+    deck = []; // reinicia la baraja
 
 for(let i=2; i<=10; i++){
     for( let tipo of tipos){
@@ -42,27 +49,20 @@ for (let tipo of tipos){
 }
 
 
-//console.log(deck);
-deck = _.shuffle(deck);
 
-return deck;
+return _.shuffle(deck);;
 }
 
-crearDeck();
 
 // esta funcion me permite tomar una carta 
 const pedirCarta= () => {
 
 
     if(deck.length === 0){
-        throw new Error('No hay cartas en la baraja');
+        throw 'No hay cartas en la baraja';
     }
 
-    const carta = deck.pop(); // saca la ultima carta de la baraja
-
-    //console.log(deck);
-    ///console.log(carta);// carta debe ser de la baraja
-    return carta;
+    return deck.pop(); // saca la ultima carta de la baraja
 }
    
 
@@ -75,6 +75,18 @@ const valorCarta = (carta) => {
     (valor === 'A') ? 11 : 10 
     : valor * 1; // si es un numero lo multiplica por 1, si es una letra lo convierte en numero
 }
+
+
+
+
+const acumularPuntos = (carta, turno) => {
+
+
+
+
+}
+
+
 // turno de la computadora
 const turnoComputadora = (puntosMinimos) => {
 do {
@@ -165,8 +177,9 @@ btnNuevo.addEventListener('click', () => {
 
 
 console.clear(); // limpia la consola
-deck = []; // reinicia la baraja
-deck= crearDeck(); // crea una nueva baraja
+inicializarJuego(); // inicializa el juego
+//deck = []; // reinicia la baraja
+//deck= crearDeck(); // crea una nueva baraja
 
 
 puntosJugador = 0;
