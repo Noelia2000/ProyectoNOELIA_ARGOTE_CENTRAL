@@ -1,6 +1,6 @@
 
 
-(()=>{
+const miModulo =(()=>{
 'use strict'; // modo estricto de javascript
 
 
@@ -24,10 +24,22 @@ const divCartasJugadores= document.querySelectorAll('.divCartas'),
 // esta funcion inicializa el juego
 const inicializarJuego=(numJugadores=2)=>{
    deck= crearDeck();
+
+    puntosJugadores=[]; // reinicia los puntos de los jugadores
   for (let i=0; i<numJugadores; i++){
     puntosJugadores.push(0);
   }
  
+puntosHTML.forEach(  elem=> elem.innerText = 0); // reinicia los puntos de los jugadores
+divCartasJugadores.forEach( elem => elem.innerHTML = ''); // reinicia las cartas de los jugadores
+
+btnPedir.disabled = false; // activa el boton de pedir carta
+btnDetener.disabled = false; // activa el boton de detener carta   
+
+
+
+
+
 
 }
 // esta funcion crea una nueva baraja
@@ -97,6 +109,29 @@ const crearCarta=(carta, turno) =>{
   
 }
 
+const determinarGanador = () => {
+
+
+const [puntosMinimos, puntosComputadora] = puntosJugadores; // obtiene los puntos del jugador y de la computadora
+
+    setTimeout(() => {
+        if (puntosComputadora === puntosMinimos) {
+            alert('Nadie gana, es un empate');
+        
+        
+        }else if (puntosMinimos > 21) {
+            alert('Perdiste, la computadora gana')
+        }else if (puntosComputadora > 21) {
+            alert('Ganaste, la computadora pierde');
+        }else{
+            alert('La computadora gana');
+        }
+        },100);
+
+}
+
+
+
 
 // turno de la computadora
 const turnoComputadora = (puntosMinimos) => {
@@ -109,34 +144,12 @@ const carta = pedirCarta();
 puntosComputadora=acumularPuntos(carta, puntosJugadores.length - 1); // acumula los puntos de la computadora
 crearCarta(carta, puntosJugadores.length - 1); // crea la carta de la computadora
 
-//<img class="carta" src="assets/cartas/2C.png">
-//const  imgCarta = document.createElement('img');
-//imgCarta.src = `assets/cartas/${carta}.png`; // 2C.png
-//imgCarta.classList.add('carta'); // le agrega la clase carta
-//divCartasComputadora.append(imgCarta);
-
-if (puntosMinimos > 21) {
-    break; // si el puntaje de la computadora es mayor a 21, se detiene el juego
-}
 
 }while( (puntosComputadora < puntosMinimos) && (puntosMinimos <= 21) );
 
-
-setTimeout(() => {
-
-
-if (puntosComputadora === puntosMinimos) {
-    alert('Nadie gana, es un empate');
+determinarGanador(); // determina el ganador
 
 
-}else if (puntosMinimos > 21) {
-    alert('Perdiste, la computadora gana')
-}else if (puntosComputadora > 21) {
-    alert('Ganaste, la computadora pierde');
-}else{
-    alert('La computadora gana');
-}
-},10);
 }
  
 
@@ -155,7 +168,7 @@ if (puntosJugador > 21) {
     console.warn('Perdiste');
     btnPedir.disabled = true; // desactiva el boton de pedir carta
     btnDetener.disabled = true; // desactiva el boton de detener carta
-turnoComputadora(puntosJugador); // llama a la funcion turnoComputadora
+    turnoComputadora(puntosJugador); // llama a la funcion turnoComputadora
 }
 else if (puntosJugador === 21) {
     console.warn('Ganaste');
@@ -167,38 +180,24 @@ else if (puntosJugador === 21) {
 
 
 btnDetener.addEventListener('click', () => {
-btnPedir.disabled = true; // desactiva el boton de pedir carta
-btnDetener.disabled = true; // desactiva el boton de detener carta
+  btnPedir.disabled = true; // desactiva el boton de pedir carta
+  btnDetener.disabled = true; // desactiva el boton de detener carta
 
 
 turnoComputadora(puntosJugador); // llama a la funcion turnoComputadora
 
 });
 
-btnNuevo.addEventListener('click', () => {
-
-
-console.clear(); // limpia la consola
-inicializarJuego(); // inicializa el juego
-//deck = []; // reinicia la baraja
-//deck= crearDeck(); // crea una nueva baraja
-
-
-//puntosJugador = 0;
-//puntosComputadora = 0;
-
-//puntosHTML[0].innerText = 0; // actualiza el puntaje del jugador
-//puntosHTML[1].innerText= 0; // actualiza el puntaje de la computadora
+//btnNuevo.addEventListener('click', () => {
+//   inicializarJuego(); // inicializa el juego
 //
-//divCartasComputadora.innerHTML = ''; // limpia las cartas de la computadora
-//divCartasJugador.innerHTML = ''; // limpia las cartas del jugador
-//
-//btnPedir.disabled = false; // activa el boton de pedir carta
-//btnDetener.disabled = false; // activa el boton de detener carta   
+//});
 
 
 
-});
+    return{
+        nuevoJuego: inicializarJuego
+    };
 
 
 })();
