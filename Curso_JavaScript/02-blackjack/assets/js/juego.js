@@ -19,6 +19,7 @@ let puntosJugador = 0;
 //Referencias HTML
 const btnPedir = document.querySelector('#btnPedir');
 const btnDetener = document.querySelector('#btnDetener');
+const btnNuevo = document.querySelector('#btnNuevo');
 
 
 const divCartasJugador = document.querySelector('#jugador-cartas');
@@ -99,12 +100,26 @@ if (puntosMinimos > 21) {
 }while( (puntosComputadora < puntosMinimos) && (puntosMinimos <= 21) );
 
 
+setTimeout(() => {
+
+
+
+
+
+
+if (puntosComputadora === puntosMinimos) {
+    alert('Nadie gana, es un empate');
+
+
+}else if (puntosMinimos > 21) {
+    alert('Perdiste, la computadora gana')
+}else if (puntosComputadora > 21) {
+    alert('Ganaste, la computadora pierde');
+}else{
+    alert('La computadora gana');
 }
-
-
-
-
-
+},10);
+}
  
 
 
@@ -146,4 +161,25 @@ btnDetener.disabled = true; // desactiva el boton de detener carta
 
 turnoComputadora(puntosJugador); // llama a la funcion turnoComputadora
 
+});
+
+btnNuevo.addEventListener('click', () => {
+
+
+console.clear(); // limpia la consola
+deck = []; // reinicia la baraja
+deck= crearDeck(); // crea una nueva baraja
+
+
+puntosJugador = 0;
+puntosComputadora = 0;
+
+puntosHTML[0].innerHTML = 0; // actualiza el puntaje del jugador
+puntosHTML[1].innerHTML= 0; // actualiza el puntaje de la computadora
+
+divCartasComputadora.innerText = ''; // limpia las cartas de la computadora
+divCartasJugador.innerText = ''; // limpia las cartas del jugador
+
+btnPedir.disabled = false; // activa el boton de pedir carta
+btnDetener.disabled = false; // activa el boton de detener carta    
 });
