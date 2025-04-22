@@ -22,7 +22,6 @@ const pedro={
 
 // ok esto se puede crear con la palabra new
  function Persona(nombre, edad){
-
     console.log('Se ejecutó esta línea');
     
     this.nombre= nombre;
