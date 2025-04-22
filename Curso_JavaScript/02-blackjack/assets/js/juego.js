@@ -1,10 +1,8 @@
-/**
- * 2C= Two of Clubs
- * 2D= Two of Diaminds
- * 2H= Two of Hearts
- * 2S= Two of spades 
- * 
- */
+
+
+(()=>{
+'use strict'; // modo estricto de javascript
+
 
 
 let deck = [];
@@ -12,7 +10,7 @@ let deck = [];
 const tipos = ['C', 'D', 'H', 'S'];
 const especiales = ['A', 'J', 'Q', 'K'];
 
-let puntosJugador = 0;
+let puntosJugador = 0,
     puntosComputadora = 0;
 
 
@@ -46,7 +44,7 @@ for (let tipo of tipos){
 
 //console.log(deck);
 deck = _.shuffle(deck);
-console.log(deck);
+
 return deck;
 }
 
@@ -174,12 +172,22 @@ deck= crearDeck(); // crea una nueva baraja
 puntosJugador = 0;
 puntosComputadora = 0;
 
-puntosHTML[0].innerHTML = 0; // actualiza el puntaje del jugador
-puntosHTML[1].innerHTML= 0; // actualiza el puntaje de la computadora
+puntosHTML[0].innerText = 0; // actualiza el puntaje del jugador
+puntosHTML[1].innerText= 0; // actualiza el puntaje de la computadora
 
-divCartasComputadora.innerText = ''; // limpia las cartas de la computadora
-divCartasJugador.innerText = ''; // limpia las cartas del jugador
+divCartasComputadora.innerHTML = ''; // limpia las cartas de la computadora
+divCartasJugador.innerHTML = ''; // limpia las cartas del jugador
 
 btnPedir.disabled = false; // activa el boton de pedir carta
 btnDetener.disabled = false; // activa el boton de detener carta    
 });
+
+
+})();
+
+
+
+
+
+
+
