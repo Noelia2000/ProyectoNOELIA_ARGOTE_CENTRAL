@@ -18,8 +18,12 @@ let puntosJugador = 0;
 
 //Referencias HTML
 const btnPedir = document.querySelector('#btnPedir');
+const btnDetener = document.querySelector('#btnDetener');
+
 
 const divCartasJugador = document.querySelector('#jugador-cartas');
+const divCartasComputadora = document.querySelector('#computadora-cartas');
+
 
 const puntosHTML= document.querySelectorAll('small');
 
@@ -72,22 +76,35 @@ const valorCarta = (carta) => {
     (valor === 'A') ? 11 : 10 
     : valor * 1; // si es un numero lo multiplica por 1, si es una letra lo convierte en numero
 }
-//const valor = valorCarta(pedirCarta());
-//console.log({valor});
+// turno de la computadora
+const turnoComputadora = (puntosMinimos) => {
+do {
+    
+const carta = pedirCarta();
 
-    //let puntos = 0;
-    //console.log({valor});
-    // 2=2  10=10  3=3
-// 
-    // if (isNaN(valor)){
-// 
-        // puntos=(valor ==='A')? 11:10;
-            //  
-// }else{
-//    
-    // puntos= valor*1;
-// }
-// console.log(puntos);
+puntosComputadora= puntosComputadora + valorCarta(carta);
+puntosHTML[1].innerText = puntosComputadora; // actualiza el puntaje del jugador
+
+//<img class="carta" src="assets/cartas/2C.png">
+const  imgCarta = document.createElement('img');
+imgCarta.src = `assets/cartas/${carta}.png`; // 2C.png
+imgCarta.classList.add('carta'); // le agrega la clase carta
+
+divCartasComputadora.append(imgCarta);
+
+if (puntosMinimos > 21) {
+    break; // si el puntaje de la computadora es mayor a 21, se detiene el juego
+}
+
+}while( (puntosComputadora < puntosMinimos) && (puntosMinimos <= 21) );
+
+
+}
+
+
+
+
+
  
 
 
@@ -110,12 +127,23 @@ divCartasJugador.append(imgCarta);
 if (puntosJugador > 21) {
     console.warn('Perdiste');
     btnPedir.disabled = true; // desactiva el boton de pedir carta
-
+    btnDetener.disabled = true; // desactiva el boton de detener carta
+turnoComputadora(puntosJugador); // llama a la funcion turnoComputadora
 }
 else if (puntosJugador === 21) {
     console.warn('Ganaste');
     btnPedir.disabled = true; // desactiva el boton de pedir carta
-} else if (puntosJugador < 21) {
-    console.log('Sigue jugando');
+    btnDetener.disabled = true; // desactiva el boton de detener carta
+    turnoComputadora(puntosJugador); // llama a la funcion turnoComputadora
 }
+});
+
+
+btnDetener.addEventListener('click', () => {
+btnPedir.disabled = true; // desactiva el boton de pedir carta
+btnDetener.disabled = true; // desactiva el boton de detener carta
+
+
+turnoComputadora(puntosJugador); // llama a la funcion turnoComputadora
+
 });
