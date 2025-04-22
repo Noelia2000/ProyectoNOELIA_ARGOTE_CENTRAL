@@ -18,8 +18,7 @@ const btnPedir = document.querySelector('#btnPedir'),
       btnNuevo = document.querySelector('#btnNuevo');
 
 
-const divCartasJugador = document.querySelector('#jugador-cartas'),
-      divCartasComputadora = document.querySelector('#computadora-cartas'),
+const divCartasJugadores= document.querySelectorAll('.divCartas'),
       puntosHTML= document.querySelectorAll('small');
 
 // esta funcion inicializa el juego
@@ -28,7 +27,7 @@ const inicializarJuego=(numJugadores=2)=>{
   for (let i=0; i<numJugadores; i++){
     puntosJugadores.push(0);
   }
-  console.log({puntosJugadores});
+ 
 
 }
 // esta funcion crea una nueva baraja
@@ -78,30 +77,43 @@ const valorCarta = (carta) => {
 
 
 
-
-const acumularPuntos = (carta, turno) => {
-
-
+// turno: 0 = primer jugador y el ultimo sera la computadora
+const acumularPuntos = (carta,turno) => {
 
 
+    puntosJugadores[turno]= puntosJugadores[turno]+ valorCarta(carta);
+    puntosHTML[turno].innerText = puntosJugadores[turno]; // actualiza el puntaje del jugador
+    return puntosJugadores[turno]; // retorna el puntaje del jugador
+
+}
+
+
+
+const crearCarta=(carta, turno) =>{
+    const imgCarta = document.createElement('img');
+    imgCarta.src = `assets/cartas/${carta}.png`; // 2C.png
+    imgCarta.classList.add('carta'); // le agrega la clase carta
+    divCartasJugadores[turno].append(imgCarta); // agrega la carta al div correspondiente
+  
 }
 
 
 // turno de la computadora
 const turnoComputadora = (puntosMinimos) => {
-do {
-    
-const carta = pedirCarta();
 
-puntosComputadora= puntosComputadora + valorCarta(carta);
-puntosHTML[1].innerText = puntosComputadora; // actualiza el puntaje del jugador
+    let puntosComputadora = 0;
+
+
+do {
+const carta = pedirCarta();
+puntosComputadora=acumularPuntos(carta, puntosJugadores.length - 1); // acumula los puntos de la computadora
+crearCarta(carta, puntosJugadores.length - 1); // crea la carta de la computadora
 
 //<img class="carta" src="assets/cartas/2C.png">
-const  imgCarta = document.createElement('img');
-imgCarta.src = `assets/cartas/${carta}.png`; // 2C.png
-imgCarta.classList.add('carta'); // le agrega la clase carta
-
-divCartasComputadora.append(imgCarta);
+//const  imgCarta = document.createElement('img');
+//imgCarta.src = `assets/cartas/${carta}.png`; // 2C.png
+//imgCarta.classList.add('carta'); // le agrega la clase carta
+//divCartasComputadora.append(imgCarta);
 
 if (puntosMinimos > 21) {
     break; // si el puntaje de la computadora es mayor a 21, se detiene el juego
@@ -111,10 +123,6 @@ if (puntosMinimos > 21) {
 
 
 setTimeout(() => {
-
-
-
-
 
 
 if (puntosComputadora === puntosMinimos) {
@@ -137,16 +145,10 @@ if (puntosComputadora === puntosMinimos) {
 btnPedir.addEventListener('click', () => {
 
 const carta = pedirCarta();
+const puntosJugador=acumularPuntos(carta, 0); // acumula los puntos del jugador
 
-puntosJugador= puntosJugador + valorCarta(carta);
-puntosHTML[0].innerText = puntosJugador; // actualiza el puntaje del jugador
 
-//<img class="carta" src="assets/cartas/2C.png">
-const  imgCarta = document.createElement('img');
-imgCarta.src = `assets/cartas/${carta}.png`; // 2C.png
-imgCarta.classList.add('carta'); // le agrega la clase carta
-
-divCartasJugador.append(imgCarta);
+crearCarta(carta, 0); // crea la carta del jugador
 
 
 if (puntosJugador > 21) {
@@ -182,17 +184,20 @@ inicializarJuego(); // inicializa el juego
 //deck= crearDeck(); // crea una nueva baraja
 
 
-puntosJugador = 0;
-puntosComputadora = 0;
+//puntosJugador = 0;
+//puntosComputadora = 0;
 
-puntosHTML[0].innerText = 0; // actualiza el puntaje del jugador
-puntosHTML[1].innerText= 0; // actualiza el puntaje de la computadora
+//puntosHTML[0].innerText = 0; // actualiza el puntaje del jugador
+//puntosHTML[1].innerText= 0; // actualiza el puntaje de la computadora
+//
+//divCartasComputadora.innerHTML = ''; // limpia las cartas de la computadora
+//divCartasJugador.innerHTML = ''; // limpia las cartas del jugador
+//
+//btnPedir.disabled = false; // activa el boton de pedir carta
+//btnDetener.disabled = false; // activa el boton de detener carta   
 
-divCartasComputadora.innerHTML = ''; // limpia las cartas de la computadora
-divCartasJugador.innerHTML = ''; // limpia las cartas del jugador
 
-btnPedir.disabled = false; // activa el boton de pedir carta
-btnDetener.disabled = false; // activa el boton de detener carta    
+
 });
 
 
