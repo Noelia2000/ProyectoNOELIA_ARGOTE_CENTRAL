@@ -38,7 +38,7 @@ class Persona{
     }
 
 
-
+//set establece un valor 
     set setComidaFavorita(comida) {
 
         this.comida= comida.toUpperCase();

@@ -1,5 +1,5 @@
 
-
+// sigleton instancia unica de la clase
 class Singleton{
 
 
