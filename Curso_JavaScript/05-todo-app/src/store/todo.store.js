@@ -30,7 +30,7 @@ throw new Error ('Not implemented');
 }
 
 
-const getTodo =(filter= Filters.All)=>{
+const getTodos =(filter= Filters.All)=>{
    switch (filter){
     case Filters.All:
     return [...state.todos];
@@ -63,7 +63,7 @@ const addTodo =(description)=>{
  * @param {String} todoId 
  */
 const toggleTodo =(todoId)=>{
-    
+
     state.todos= state.todos.map(todo=>{
         if (todo.id === todoId){
             todo.done =! todo.done;
@@ -111,7 +111,7 @@ export default {
     deleteCompleted,
     deleteTodo,
     getCurrentFilter,
-    getTodo,
+    getTodos,
     initStore,
     loadStore,
     setFilter,
