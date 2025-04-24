@@ -4,6 +4,7 @@ import { renderTodos } from './use-cases';
 
 
 const ElementIDs={
+    ClearCompletedButton:'.clear-completed',
 
     TodoList:'.todo-list',
     NewTodoInput: '#new-todo-input',
@@ -42,6 +43,7 @@ const ElementIDs={
  
     const newDescriptionInput = document.querySelector(ElementIDs.NewTodoInput);
     const todoLisUL = document.querySelector(ElementIDs.TodoList);
+    const clearCompletedButton = document.querySelector(ElementIDs.ClearCompletedButton);
 
 
     //listeners
@@ -73,5 +75,10 @@ const ElementIDs={
         displayTodos();
 
     });
+
+    clearCompletedButton.addEventListener('click',()=>{
+        todoStore.deleteCompleted();
+        displayTodos();
+    })
  
 }
