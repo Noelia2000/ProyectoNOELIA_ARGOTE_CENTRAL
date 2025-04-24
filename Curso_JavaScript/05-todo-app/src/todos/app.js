@@ -99,7 +99,6 @@ const ElementIDs={
                 case 'Todos':
                     todoStore.setFilter(Filters.All);
                     break;
-                    
                     case 'Pendientes':
                     todoStore.setFilter(Filters.Pending);
                     break;
