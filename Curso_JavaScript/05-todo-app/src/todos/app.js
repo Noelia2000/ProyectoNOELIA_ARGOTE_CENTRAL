@@ -1,6 +1,6 @@
  import todoStore, { Filters } from '../store/todo.store';
 import html from './app.html?raw';
-import { renderTodos } from './use-cases';
+import { renderTodos, renderPending } from './use-cases';
 
 
 const ElementIDs={
@@ -8,6 +8,7 @@ const ElementIDs={
     TodoList:'.todo-list',
     NewTodoInput: '#new-todo-input',
     TodoFilters: '.filtro',
+    PendingCountLabel: '#pending-count',
 
 }
 
@@ -22,11 +23,18 @@ const ElementIDs={
     const displayTodos=()=>{
        const todos = todoStore.getTodos( todoStore.getCurrentFilter()); 
        renderTodos(ElementIDs.TodoList, todos);
+       updatePendingCount();
+
+
+    }
+    const updatePendingCount=()=>{
+
+        renderPending(ElementIDs.PendingCountLabel);
 
 
     }
 
-    
+
 
 // cuando la funcion App() se llama
     (() =>{
@@ -84,19 +92,19 @@ const ElementIDs={
 
     filtersLIs.forEach(element=>{
         element.addEventListener('click',(element)=>{
-            filtersLIs.forEach( el=>classList.remove('selected'));
+            filtersLIs.forEach( el=>el.classList.remove('selected'));
              element.target.classList.add('selected');
 
              switch (element.target.text){
                 case 'Todos':
-                    todoStore.setFilter(Filters.All)
+                    todoStore.setFilter(Filters.All);
                     break;
                     
                     case 'Pendientes':
-                    todoStore.setFilter(Filters.Pending)
+                    todoStore.setFilter(Filters.Pending);
                     break;
                     case 'Completados':
-                    todoStore.setFilter(Filters.Completed)
+                    todoStore.setFilter(Filters.Completed);
                     break;
              }
 
