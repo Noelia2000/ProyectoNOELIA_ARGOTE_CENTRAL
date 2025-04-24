@@ -1,7 +1,7 @@
 
 
 class Persona{
-
+// static llama a mas instancias
 static porObjeto({nombre, apellido, pais}){
 
     return new Persona( nombre, apellido, pais);
