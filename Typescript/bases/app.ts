@@ -1,4 +1,4 @@
 
-const smg: string = 'hola mundo';
+const msg: string = 'hola mundo';
 
-console.log(smg);
+console.log(msg);

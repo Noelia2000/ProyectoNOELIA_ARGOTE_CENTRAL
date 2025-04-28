@@ -1,2 +1,3 @@
-var smg = 'hola mundo';
-console.log(smg);
+"use strinct";
+var msg = 'hola mundo';
+console.log(msg);
