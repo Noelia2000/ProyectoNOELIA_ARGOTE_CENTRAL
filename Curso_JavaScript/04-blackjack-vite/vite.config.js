@@ -4,7 +4,8 @@ import { defineConfig } from "vite";
 
 
 export default defineConfig({
-    base: ''
+    base: '/js-vite-blackjack/',
+    plugins:[]
 
 
 
