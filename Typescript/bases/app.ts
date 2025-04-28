@@ -1,12 +1,10 @@
+// funcion anonima autoinvocada
+(()=>{
+    
+    const a : number=10;
 
-const msg: string = 'hola mundo';
 
+    console.log(a)
 
-const hero ={
-    name: 'Ironman',
-    age:45
-}
+})()
 
-hero.age=50
-
-console.log(hero.age+1);
