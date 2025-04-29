@@ -14,4 +14,4 @@ const error =(message:string):(never|number)=>{
 //el never significa que mi funcion no debe tener un punto final alcanzable- no debe terminar exitosamente
 error('Auxilio!');
 })()
-// never es una funion que va a terinar con un error
+// never es una funion que va a terminar con un error
