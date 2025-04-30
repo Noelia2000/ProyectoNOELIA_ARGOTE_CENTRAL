@@ -2,7 +2,7 @@
 (()=>{
 
 //para recibir dos tipos de datos (string| boolean)
-    const fullName= (firstName:string, lastName:(string|boolean)): String=>{
+    const fullName= (firstName:string, lastName:string): String=>{
 
 
         return `${firstName} ${lastName}`;
