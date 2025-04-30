@@ -1,0 +1,26 @@
+(()=>{
+
+    let flash ={
+        name: 'Barry Allen',
+        age:24,
+        powers: ['Super velcidad', 'Viajar en el tiempo']
+    }
+
+    flash = {
+        name: 'Clark Kent',
+        age:60,
+        powers: ['Super fuerza'],
+        getNombre(){
+
+            return this.name;
+
+        }
+    }
+
+
+
+
+})()
+
+
+
