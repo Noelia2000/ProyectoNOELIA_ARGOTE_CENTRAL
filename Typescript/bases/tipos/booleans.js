@@ -1,5 +1,4 @@
 "use strict";
-// funcion anonima autoinnvocada
 (() => {
     let isSuperman = true;
     let isBatman = false;

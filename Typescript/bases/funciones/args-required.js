@@ -1,6 +1,5 @@
 "use strict";
 (() => {
-    //para recibir dos tipos de datos (string| boolean)
     const fullName = (firstName, lastName) => {
         return `${firstName} ${lastName}`;
     };

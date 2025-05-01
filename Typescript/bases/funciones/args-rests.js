@@ -1,6 +1,5 @@
 "use strict";
 (() => {
-    // operador rest que son'...'
     const fullName = (firstName, ...restArgs) => {
         return `${firstName} ${restArgs.join('')}`;
     };
