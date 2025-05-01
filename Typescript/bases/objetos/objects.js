@@ -13,4 +13,5 @@
             return this.name;
         }
     };
+    console.log(flash);
 })();
