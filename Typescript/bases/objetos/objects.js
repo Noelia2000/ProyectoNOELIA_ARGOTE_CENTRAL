@@ -1,5 +1,6 @@
 "use strict";
 (() => {
+    //?Objetos con tipos especificos
     let flash = {
         name: 'Barry Allen',
         age: 24,
@@ -7,11 +8,18 @@
     };
     flash = {
         name: 'Clark Kent',
-        age: 60,
         powers: ['Super fuerza'],
-        getNombre() {
+        getName() {
             return this.name;
         }
     };
-    console.log(flash);
+    // flash = {
+    //     name: 'Clark Kent',
+    //     age:60,
+    //     powers: ['Super fuerza'],
+    //     getNombre(){
+    //         return this.name;
+    //     }
+    // }
+    console.log(flash.getName());
 })();
