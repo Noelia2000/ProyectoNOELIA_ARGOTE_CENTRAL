@@ -15,3 +15,4 @@
     console.log(a); // si es ejecutado sale undefined
 })();
 // el void es muy utilizado para que las funcionnes no regresen nada 
+//# sourceMappingURL=void.js.map

@@ -7,3 +7,4 @@
     hero[2] = false;
     console.log(hero);
 })();
+//# sourceMappingURL=tuples.js.map

@@ -66,12 +66,14 @@ const charles:Charles = {
   poder:"psiquico",
   estatura: 1.78
 };
+console.log('paso por aqui');
 
 type Apocalipsis={
 
   lider: boolean;
   miembros:string[]
 }
+console.log('paso por aqui');
 
 
 const apocalipsis:Apocalipsis = {

@@ -11,3 +11,4 @@
     error('Auxilio!');
 })();
 // never es una funion que va a terminar con un error
+//# sourceMappingURL=never.js.map

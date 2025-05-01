@@ -37,3 +37,4 @@
     console.log(existttt);
     console.log(powerrrr);
 })();
+//# sourceMappingURL=any.js.map

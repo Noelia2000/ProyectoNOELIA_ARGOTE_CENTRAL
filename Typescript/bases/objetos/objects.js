@@ -36,3 +36,4 @@
         powers: ['Super velcidad']
     };
 })();
+//# sourceMappingURL=objects.js.map

@@ -15,3 +15,4 @@
     //pero nos puede conllevar a otro tipo de errores 
     console.log({ avengers });
 })();
+//# sourceMappingURL=numbers.js.map
