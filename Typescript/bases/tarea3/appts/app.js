@@ -36,6 +36,7 @@ const apocalipsis = {
     lider: true,
     miembros: ["Magneto", "Tormenta", "Psylocke", "Angel"]
 };
+console.log(apocalipsis);
 // Mystique, debe poder ser cualquiera de esos dos mutantes (charles o apocalipsis)
 let mystique;
 mystique = charles;
