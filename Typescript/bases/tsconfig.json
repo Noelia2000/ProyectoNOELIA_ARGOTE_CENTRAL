@@ -115,7 +115,7 @@
   ],
   //?lounico que se quiere incluir 
   "include": [
-    "classes"
+    "interfaces"
     
   ]
 }
