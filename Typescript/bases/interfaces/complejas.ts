@@ -5,7 +5,8 @@
     interface Client{
         name: string;
         age?: number;
-        adress:Adress
+        address:Adress;
+        getFullAddress(id:string):string;
 
     
     }
@@ -19,20 +20,26 @@
 
         name:'Noelia',
         age:24,
-        adress:{
+        address:{
             id:125,
             zip:'KY2 SUD',
             city:'Ottawa'
+        },
+        getFullAddress (id:string){
+            return this.address.city;
         }
     }
 
     const client2:Client={
         name: 'Melisa',
         age:30,
-        adress:{
+        address:{
             city:'Toronto',
             id:120,
             zip:'K2S U2A'
+        },
+        getFullAddress (id:string){
+            return this.address.city;
         }
     }
 

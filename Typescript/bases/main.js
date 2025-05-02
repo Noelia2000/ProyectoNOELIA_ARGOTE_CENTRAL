@@ -18,19 +18,25 @@
     const client = {
         name: 'Noelia',
         age: 24,
-        adress: {
+        address: {
             id: 125,
             zip: 'KY2 SUD',
             city: 'Ottawa'
+        },
+        getFullAddress(id) {
+            return this.address.city;
         }
     };
     const client2 = {
         name: 'Melisa',
         age: 30,
-        adress: {
+        address: {
             city: 'Toronto',
             id: 120,
             zip: 'K2S U2A'
+        },
+        getFullAddress(id) {
+            return this.address.city;
         }
     };
 })();
