@@ -114,8 +114,8 @@
     "node_modules2"
   ],
   //?lounico que se quiere incluir 
-  // "include": [
-  //   "node_modules"
+  "include": [
+    "ES6"
     
-  // ]
+  ]
 }
