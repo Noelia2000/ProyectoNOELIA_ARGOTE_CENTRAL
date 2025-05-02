@@ -7,6 +7,12 @@
     // public realName: string;
     static avgAge:number=35;
 
+    static getAvgAge(){
+
+        return this.name;
+
+    }
+    //? estatico significa que voy a poder acceder a el si crear una instacia de mi clase 
     constructor
     (
         private name:string,
@@ -20,11 +26,18 @@
         // this.team=team;
         // this.realName=realName;
     }
+
+
+    //?METODO BIO
+public bio(){
+    return `${this.name} (${ this.team})`
+}
+
  }
 
  const antman : Avenger=new Avenger('Antman','Capitan','Scott Lang');
  console.log(antman)
 // console.log(Avenger.avgAge)
-console.log(Avenger.avgAge)
+console.log(Avenger.getAvgAge())
 
 })()
