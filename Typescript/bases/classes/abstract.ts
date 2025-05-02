@@ -34,6 +34,8 @@ console.log(character.realName);
 }
 
 
-printName (wolverine);
+// printName (wolverine);
 })()
 
+//? Una clase abstracta no sirve para crear instancias, sirve para crear otras clases
+//?o que otras clases sen extendidas de ella 
