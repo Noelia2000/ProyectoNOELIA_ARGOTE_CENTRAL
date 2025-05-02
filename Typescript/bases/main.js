@@ -14,4 +14,24 @@
         }
     };
 })();
+(() => {
+    const client = {
+        name: 'Noelia',
+        age: 24,
+        adress: {
+            id: 125,
+            zip: 'KY2 SUD',
+            city: 'Ottawa'
+        }
+    };
+    const client2 = {
+        name: 'Melisa',
+        age: 30,
+        adress: {
+            city: 'Toronto',
+            id: 120,
+            zip: 'K2S U2A'
+        }
+    };
+})();
 //# sourceMappingURL=main.js.map
