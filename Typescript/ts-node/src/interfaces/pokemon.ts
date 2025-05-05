@@ -6,7 +6,7 @@ export interface Pokemon {
     forms:                    Species[];
     game_indices:             GameIndex[];
     height:                   number;
-    held_items:               any[];
+    held_items:               HeldItem[];
     id:                       number;
     is_default:               boolean;
     location_area_encounters: string;
@@ -43,6 +43,16 @@ export interface GameIndex {
     version:    Species;
 }
 
+export interface HeldItem {
+    item:            Species;
+    version_details: VersionDetail[];
+}
+
+export interface VersionDetail {
+    rarity:  number;
+    version: Species;
+}
+
 export interface Move {
     move:                  Species;
     version_group_details: VersionGroupDetail[];
@@ -51,7 +61,7 @@ export interface Move {
 export interface VersionGroupDetail {
     level_learned_at:  number;
     move_learn_method: Species;
-    order:             number | null;
+    order:             null;
     version_group:     Species;
 }
 
