@@ -1,9 +1,19 @@
 // import { Fragment } from "react"
-export const FirstApp = () => {
-  return (
-    <>
-    <h1>Noelia</h1>
-    <p> soy un  subtitulo</p>
-    </>
-  )
+// const newMessage={
+//   message:'Hola Mundo',
+//   title:'Noelia'
+// };
+
+
+export const FirstApp=()=>{
+
+return(
+  <>
+  <h1>Noelia</h1>
+  {/* <code>{JSON.stringify(newMessage)}</code> */}
+  <p> Soy un subtitulo</p>
+  
+  </>
+)
+
 }
