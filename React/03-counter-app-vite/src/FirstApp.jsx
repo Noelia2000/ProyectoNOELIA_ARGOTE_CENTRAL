@@ -4,11 +4,13 @@
 //   title:'Noelia'
 // };
 
-
+import PropTypes from 'prop-types';
 export const FirstApp=({title, subTitle})=>{
 
 
   //  console.log(props);
+
+
 
 
 return(
@@ -19,5 +21,11 @@ return(
   
   </>
 )
+
+}
+
+FirstApp.propTypes={
+  title:PropTypes.string.isRequired,
+  subTitle: PropTypes.number,
 
 }
