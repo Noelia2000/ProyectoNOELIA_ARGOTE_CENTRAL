@@ -1,14 +1,29 @@
+import { useState } from 'react';
+
 
 export const GifExpertApp = () => {
+  
+    const [categories, seTcategories] = useState(['One Punch', ' dragon ballZ']);
+
+    console.log(categories)
   return (
     <>
-    {/*Titulo */}
-    <h1>GifExpertApp</h1>
-      {/*Input*/}
+        {/* titulo */}
+        <h1>GifExpertApp</h1>
+        {/* imput */}
 
 
-      {/*Listado de Gif*/}
-        {/*Git Item */}
+        {/* listado de gifs */}
+        <ol>
+          {
+          categories.map(category => {
+            return<li key={category}>{category}</li>
+          })
+          }
+        </ol>
+
+        {/* git item */}
     </>
+    
   )
 }
