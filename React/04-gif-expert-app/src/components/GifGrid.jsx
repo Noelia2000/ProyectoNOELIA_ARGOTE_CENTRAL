@@ -1,7 +1,13 @@
+import { getGifs } from "../helpers/getGifs";
 
-export const GifGrid = ({category}) => {
 
 
+  
+
+    export const GifGrid=({category})=>{
+        
+        
+        getGifs(category);
 
 
   return (
@@ -12,4 +18,4 @@ export const GifGrid = ({category}) => {
     
     </>
   )
-}
+    }
