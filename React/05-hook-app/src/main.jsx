@@ -1,7 +1,8 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import './index.css';
-import { Memorize } from './06-memos/Memorize';
+// import { Memorize } from './06-memos/Memorize';
+import { MemoHook } from './06-memos/MemorizeHook';
 // import { SimpleForm } from './02-useEffect/SimpleForm';
 // import { FormWithCustomHook } from './02-useEffect/FormWithCustomHook';
 // import { MultipleCustomHooks } from './03-examples/MultipleCustomHooks';
@@ -15,6 +16,6 @@ import { Memorize } from './06-memos/Memorize';
 
 createRoot(document.getElementById('root')).render(
   // <StrictMode>
-    <Memorize/>
+    <MemoHook/>
   //  </StrictMode>,
 )
