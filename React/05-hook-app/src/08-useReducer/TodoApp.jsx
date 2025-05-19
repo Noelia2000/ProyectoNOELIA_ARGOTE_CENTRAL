@@ -26,6 +26,10 @@ export const TodoApp = () => {
 
     const [todos, dispatch] = useReducer(todoReducer, initialState);
 
+    const handleNewTodo = (todo) => {
+        console.log({ todo });
+    }
+
     return (
         <>
 
@@ -34,6 +38,7 @@ export const TodoApp = () => {
 
             <div className="row">
                 <div className="col-7">
+                    {/* {   TodoList} */}
                     <ul className="list-group ">
                         {
                             todos.map(todo => (
@@ -48,6 +53,7 @@ export const TodoApp = () => {
                         }
 
                     </ul>
+                    {/* { Fin TodoList} */}
 
                 </div>
 
@@ -55,6 +61,8 @@ export const TodoApp = () => {
                 <div className="col-5">
                     <h4>Agregar TODO</h4>
                     <hr />
+                    {/* { TodoAdd onNewTodo(todo)} */}
+                    {/* {{id:new Date().getDate.apply.apply, description:'',done:false}} */}
                     <form>
 
                         <input
