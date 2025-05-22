@@ -39,6 +39,16 @@ const onLogout=()=>{
                     >
                         DC
                     </NavLink>
+
+
+                    <NavLink
+                        className={({ isActive }) => `nav-item nav-link ${isActive ? 'acctive' : ''}`}
+
+                        to="/search"
+                    >
+                        Search
+                    </NavLink>
+
                 </div>
             </div>
 
