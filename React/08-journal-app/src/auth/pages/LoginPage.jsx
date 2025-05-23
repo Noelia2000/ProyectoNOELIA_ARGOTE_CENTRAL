@@ -1,48 +1,74 @@
-import { Grid, TextField, Typography } from "@mui/material"
+import { Box, Typography, TextField, Grid, Button, Link } from '@mui/material';
+import { Link as RouterLink } from "react-router-dom";
+import { Google } from "@mui/icons-material";
+
 
 export const LoginPage = () => {
   return (
-    <Grid
-      container
-      spacing={0}
-      direction="column"
-      alignItems="center"
-      justifyContent="center"
-      sx={{ minHeight: '100vh', backgroundColor: 'primary.main', padding: 4 }}
+    <Box
+      component="main"
+      sx={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        minHeight: "100vh",
+        bgcolor: "primary.main",
+        // padding: 4,
+      }}
     >
-      <Grid item
-        className='box-shadow'
-        xs={3}
-        sx={{ backgroundColor: 'white', padding: 3, borderRadius: 2 }}>
-
-        <Typography variant="h5" sx={{ mb: 1 }}>Login</Typography>
-        <form>
-          <Grid container>
-            <Grid item xs={ 12 } sx={{ mt: 2 }}>
-              <TextField
-                label="Correo"
-                type="email"
-                placeholder="correo@google.com"
-                fullWidth
-              />
-            </Grid>
-
-
-            <Grid item xs={ 12 } sx={{ mt: 2 }}>
-              <TextField
-                label="Contraseña"
-                type="password"
-                placeholder="Contraseña"
-                fullWidth
-              />
-            </Grid>
-
-
+      <Box
+        component="section"
+        sx={{
+          width: {
+            xs: "80%", sm: "60%", md: "40%", lg: "30%",
+          },
+          bgcolor: "white", padding: { xs: 2, sm: 3, md: 4 }, borderRadius: 2,
+        }}
+      >
+        <Typography variant="h5" sx={{ mb: 2, textAlign: "center" }}        >
+          Login
+        </Typography>
+        <Grid container component="form" spacing={2}>
+          <Grid size={{ xs: 12 }}>
+            <TextField
+              id="email"
+              label="Email"
+              type="email"
+              placeholder="email@google.com"
+              size="small"
+              fullWidth />
           </Grid>
-        </form>
+          <Grid size={{ xs: 12 }}>
+            <TextField
+              id="password"
+              label="Password"
+              type="password"
+              placeholder="password"
+              size="small"
+              fullWidth />
+          </Grid>
+        </Grid>
 
-      </Grid>
 
-    </Grid>
-  )
-}
+        {/* New */}
+        <Grid container spacing={2} sx={{ mt: 2 }}>
+          <Grid size={{ xs: 12, md: 6 }}>
+            <Button variant="contained" fullWidth>
+              Login
+            </Button>
+          </Grid>
+          <Grid size={{ xs: 12, md: 6 }}>
+            <Button variant="contained" fullWidth startIcon={<Google />}            >
+              Google
+            </Button>
+          </Grid>
+        </Grid>
+        <Grid container direction="row" justifyContent="end" sx={{ mt: 2 }}        >
+          <Link component={RouterLink} color="inherit" to="/auth/register"          >
+            Create una cuenta.
+          </Link>
+        </Grid>
+      </Box>
+    </Box>
+  );
+};
