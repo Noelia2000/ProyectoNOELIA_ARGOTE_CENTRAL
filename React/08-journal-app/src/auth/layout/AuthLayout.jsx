@@ -1,33 +1,26 @@
-import { Box, Typography } from "@mui/material"
+import { Grid, Typography } from "@mui/material";
 
-export const AuthLayout = ({ children, title=''}) => {
-    return (
-        <Box
-            component="main"
-            sx={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                minHeight: "100vh",
-                bgcolor: "primary.main",
-                // padding: 4,
-            }}
-        >
-            <Box
-                component="section"
-                sx={{
-                    width: {
-                        xs: "80%", sm: "60%", md: "40%", lg: "30%",
-                    },
-                    bgcolor: "white", padding: { xs: 2, sm: 3, md: 4 }, borderRadius: 2,
-                }}
-            >
-                <Typography variant="h5" sx={{ mb: 2, textAlign: "center" }}  >{ title}</Typography>
+export const AuthLayout = ({ children, title = "" }) => {
+  return (
+    <Grid
+      container
+      spacing={0}
+      direction="colmn"
+      alignItems={"center"}
+      justifyContent="center"
+      sx={{ minHeight: "100vh", backgroundColor: "primary.main", padding: 4 }}
+    >
+      <Grid
+        item
+        className="box-shadow"
+        xs={3}
+        sx={{ width:{sm:450}, backgroundColor: "white", padding: 3, borderRadius: 2 }}
+      >
+        <Typography variant="h5" sx={{ mb: 1 }}>{title}</Typography>
 
-                {children}
-
-
-            </Box>
-        </Box>
-    )
-}
+        {/* children */}
+        {children}
+      </Grid>
+    </Grid>
+  );
+};
