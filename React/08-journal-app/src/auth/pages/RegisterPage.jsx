@@ -28,6 +28,8 @@ export const RegisterPage = () => {
    } = useForm (formData, formValidations);
 
 
+console.log(displayNameValid);
+
   const onSubmit = (event) => {
     event.preventDefault();
     console.log(formState);
@@ -49,7 +51,7 @@ export const RegisterPage = () => {
               value={displayName}
               onChange={onInputChange}
               error={!displayName}
-              helperText={ displayName}
+              helperText={ displayNameValid}
             />
           </Grid>
 
