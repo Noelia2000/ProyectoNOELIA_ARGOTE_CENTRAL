@@ -65,3 +65,10 @@ export const registerUserWithEmailPassword = async ({ email, password, displayNa
 
 
 }
+
+
+export const loginWithEmailPassword=()=>{
+
+//! signInWithEmailAndPassword
+
+}
