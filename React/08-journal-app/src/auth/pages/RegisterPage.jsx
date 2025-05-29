@@ -11,10 +11,21 @@ const formData = {
   displayName: 'Noelia'
 }
 
+// se crea un objeto personalizado 
+const formValidations={
+ email:[ (value)=>value.includes('@'),'El correo debe de tener un @.'],
+ password:[ (value)=>value.length >=6,'El password debe de tener mas de 6 letras.'],
+ displayName:[ (value)=>value.length >=1,'El nombre es requerido.'],
+
+
+}
 
 export const RegisterPage = () => {
 
-  const { displayName, email, password, onInputChange, formState } = useForm (formData);
+  const { 
+    formState,displayName, email, password, onInputChange,
+    isFormValid, displayNameValid, emailValid, PasswordValid,
+   } = useForm (formData, formValidations);
 
 
   const onSubmit = (event) => {
@@ -37,6 +48,8 @@ export const RegisterPage = () => {
               name="displayName"
               value={displayName}
               onChange={onInputChange}
+              error={!displayName}
+              helperText={ displayName}
             />
           </Grid>
 
