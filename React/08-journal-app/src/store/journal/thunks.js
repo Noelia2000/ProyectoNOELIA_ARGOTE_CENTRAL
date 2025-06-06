@@ -1,6 +1,6 @@
 import {collection, doc, setDoc} from 'firebase/firestore/lite'; 
 import { FirebaseDB } from '../../firebase/config';
-import { addNewEmptyNote, savingNewNote, setActiveNote, setNotes, setSaving, updateNote } from './';
+import { addNewEmptyNote, savingNewNote, setActiveNote, setNotes, setPhotosToActiveNote, setSaving, updateNote } from './';
 import { fileUpload, loadNotes } from '../../helpers';
 
 export const startNewNote = ()=>{
