@@ -13,12 +13,11 @@ app.use(express.static('public'));
 
 
 //Rutas
-// app.get('/',(req, res)=>{
+app.use('/api/auth', require('./routes/auth'));
+// TODO: CRUD: Eventos
 
-// res.json({
-//     ok: true
-// })
-// });
+
+
 
 //Escuchar peticiones
 app.listen(process.env.PORT,()=>{
