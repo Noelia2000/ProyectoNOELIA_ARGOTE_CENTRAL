@@ -10,6 +10,8 @@ const app = express();
 //Directorio Publico
 app.use(express.static('public'));
 
+//lectura y paseo del body
+app.use( express.json());
 
 
 //Rutas
